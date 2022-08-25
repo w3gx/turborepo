@@ -17,28 +17,28 @@ importers:
       '@babel/core': ^7.0.0
       '@types/node': ^17.0.12
       '@types/react': 17.0.48
+      '@w3gx/tsconfig': workspace:*
+      '@w3gx/ui': workspace:*
       eslint: 7.32.0
       eslint-config-custom: workspace:*
       next: 12.2.3
       next-transpile-modules: 9.0.0
       react: 17.0.2
       react-dom: 17.0.2
-      tsconfig: workspace:*
       typescript: ^4.5.3
-      ui: workspace:*
     dependencies:
+      '@w3gx/ui': link:../../packages/ui
       next: 12.2.3_q6el6r4hbd2fftzckrwpdnyobi
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      ui: link:../../packages/ui
     devDependencies:
       '@babel/core': 7.18.13
       '@types/node': 17.0.45
       '@types/react': 17.0.48
+      '@w3gx/tsconfig': link:../../packages/tsconfig
       eslint: 7.32.0
       eslint-config-custom: link:../../packages/eslint-config-custom
       next-transpile-modules: 9.0.0
-      tsconfig: link:../../packages/tsconfig
       typescript: 4.7.4
 
   apps/web:
@@ -46,28 +46,28 @@ importers:
       '@babel/core': ^7.0.0
       '@types/node': ^17.0.12
       '@types/react': 17.0.48
+      '@w3gx/tsconfig': workspace:*
+      '@w3gx/ui': workspace:*
       eslint: 7.32.0
       eslint-config-custom: workspace:*
       next: 12.2.3
       next-transpile-modules: 9.0.0
       react: 17.0.2
       react-dom: 17.0.2
-      tsconfig: workspace:*
       typescript: ^4.5.3
-      ui: workspace:*
     dependencies:
+      '@w3gx/ui': link:../../packages/ui
       next: 12.2.3_q6el6r4hbd2fftzckrwpdnyobi
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
-      ui: link:../../packages/ui
     devDependencies:
       '@babel/core': 7.18.13
       '@types/node': 17.0.45
       '@types/react': 17.0.48
+      '@w3gx/tsconfig': link:../../packages/tsconfig
       eslint: 7.32.0
       eslint-config-custom: link:../../packages/eslint-config-custom
       next-transpile-modules: 9.0.0
-      tsconfig: link:../../packages/tsconfig
       typescript: 4.7.4
 
   packages/eslint-config-custom:
@@ -100,10 +100,10 @@ importers:
       '@mui/material': ^5.10.2
       '@types/react': ^17.0.37
       '@types/react-dom': ^17.0.11
+      '@w3gx/tsconfig': workspace:*
       eslint: ^7.32.0
       eslint-config-custom: workspace:*
       react: ^17.0.2
-      tsconfig: workspace:*
       typescript: ^4.5.2
     dependencies:
       '@emotion/react': 11.10.0_skqlhrap4das3cz5b6iqdn2lqi
@@ -115,10 +115,10 @@ importers:
     devDependencies:
       '@types/react': 17.0.48
       '@types/react-dom': 17.0.17
+      '@w3gx/tsconfig': link:../tsconfig
       eslint: 7.32.0
       eslint-config-custom: link:../eslint-config-custom
       react: 17.0.2
-      tsconfig: link:../tsconfig
       typescript: 4.7.4
 
 packages:
