@@ -9,26 +9,32 @@ interface IAppInput {
     sx?: CSSProperties;
     icon: IconifyIcon;
     placeholder?: string;
+    width: number;
+    height: number;
 }
 
-export const AppInput: FC<IAppInput> = ({ sx, placeholder, ...other }) => {
-    return (
-        <FilledInput
-            fullWidth
-            startAdornment={
-                <InputAdornment position="start">
-                    <AppIcon
-                        icon={searchIcon}
-                        sx={{ width: 24, height: 24, color: "text.disabled" }}
-                    />
-                </InputAdornment>
-            }
-            placeholder={placeholder}
-            sx={{
-                "& .MuiFilledInput-input": { py: "18px" },
-                ...sx,
-            }}
-            {...other}
-        />
-    );
-};
+export const AppInput: FC<IAppInput> = ({
+    sx,
+    width = 24,
+    height = 24,
+    placeholder,
+    ...other
+}) => (
+    <FilledInput
+        fullWidth
+        startAdornment={
+            <InputAdornment position="start">
+                <AppIcon
+                    icon={searchIcon}
+                    sx={{ width, height, color: "text.disabled" }}
+                />
+            </InputAdornment>
+        }
+        placeholder={placeholder}
+        sx={{
+            "& .MuiFilledInput-input": { py: "18px" },
+            ...sx,
+        }}
+        {...other}
+    />
+);
