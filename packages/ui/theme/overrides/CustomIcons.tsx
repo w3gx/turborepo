@@ -6,15 +6,15 @@ import warningAlt from "@iconify/icons-carbon/warning-alt";
 import warningIcon from "@iconify/icons-carbon/warning";
 import closeFilled from "@iconify/icons-carbon/close-filled";
 // @mui
-import { SvgIcon } from "@mui/material";
+import { SvgIcon, alpha } from "@mui/material";
 // componentss
-import { Icon } from "@iconify/react";
+import { IconifyIcon, Icon } from "@iconify/react";
 // @mui
 import { Box } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
-export const AppIcon: FC<{ icon: Icon; sx?: CSSProperties }> = ({
+export const AppIcon: FC<{ icon: IconifyIcon; sx?: CSSProperties }> = ({
     icon,
     sx,
     ...other
@@ -112,6 +112,102 @@ export const AutocompleteIcon: FC<{ sx?: CSSProperties }> = (props) => {
         <SvgIcon {...props} sx={{ width: 18, height: 18 }}>
             <path d="M12 16.5 4.5 9l1.05-1.05L12 14.4l6.45-6.45L19.5 9z" />
         </SvgIcon>
+    );
+};
+
+import logoLinkedin from "@iconify/icons-carbon/logo-linkedin";
+import logoFacebook from "@iconify/icons-carbon/logo-facebook";
+import logoTwitter from "@iconify/icons-carbon/logo-twitter";
+import logoInstagram from "@iconify/icons-carbon/logo-instagram";
+import { Stack, IconButton, Button, Link } from "@mui/material";
+
+export const SocialButtons: FC<{
+    initialColor?: boolean;
+    simple?: boolean;
+    links: Record<string, string>;
+    sx?: CSSProperties;
+}> = ({ initialColor = false, simple = true, links = {}, sx, ...other }) => {
+    const SOCIALS = [
+        {
+            name: "FaceBook",
+            icon: logoFacebook,
+            socialColor: "#1877F2",
+            path: links.facebook,
+        },
+        {
+            name: "Instagram",
+            icon: logoInstagram,
+            socialColor: "#E02D69",
+            path: links.instagram,
+        },
+        {
+            name: "Linkedin",
+            icon: logoLinkedin,
+            socialColor: "#007EBB",
+            path: links.linkedin,
+        },
+        {
+            name: "Twitter",
+            icon: logoTwitter,
+            socialColor: "#00AAEC",
+            path: links.twitter,
+        },
+    ];
+
+    return (
+        <Stack direction="row" flexWrap="wrap" alignItems="center">
+            {SOCIALS.map((social) => {
+                const { name, icon, path, socialColor } = social;
+                if (!path) return null;
+                return simple ? (
+                    <Link key={name} href={path}>
+                        <IconButton
+                            color="inherit"
+                            sx={{
+                                ...(initialColor && {
+                                    color: socialColor,
+                                    "&:hover": {
+                                        bgcolor: alpha(socialColor, 0.08),
+                                    },
+                                }),
+                                ...sx,
+                            }}
+                            {...other}
+                        >
+                            <AppIcon
+                                icon={icon}
+                                sx={{ width: 20, height: 20 }}
+                            />
+                        </IconButton>
+                    </Link>
+                ) : (
+                    <Button
+                        key={name}
+                        href={path}
+                        color="inherit"
+                        variant="outlined"
+                        size="small"
+                        startIcon={<AppIcon icon={icon} />}
+                        sx={{
+                            m: 0.5,
+                            flexShrink: 0,
+                            ...(initialColor && {
+                                color: socialColor,
+                                borderColor: socialColor,
+                                "&:hover": {
+                                    borderColor: socialColor,
+                                    bgcolor: alpha(socialColor, 0.08),
+                                },
+                            }),
+                            ...sx,
+                        }}
+                        {...other}
+                    >
+                        {name}
+                    </Button>
+                );
+            })}
+        </Stack>
     );
 };
 
