@@ -1,10 +1,3 @@
-// material
-import { useTheme } from "@mui/material/styles";
-
-// ----------------------------------------------------------------------
-
-// ----------------------------------------------------------------------
-
 export const pxToRem = (value: number) => `${value / 16}rem`;
 
 export const remToPx = (value: string) => Math.round(parseFloat(value) * 16);
