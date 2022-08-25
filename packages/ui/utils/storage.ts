@@ -4,7 +4,7 @@ export type TStorageEntry = TStorageItem | TStorageRecord;
 
 const dummyStorage = {
     setItem(key: string, value: TStorageEntry) {},
-    getItem(key: string, defaultValue: unknown) {
+    getItem(key: string, defaultValue?: unknown) {
         return defaultValue || key;
     },
     clear() {},
@@ -14,7 +14,7 @@ export const Storage = {
     get store() {
         return typeof window !== "undefined" ? localStorage : dummyStorage;
     },
-    getItem(key: string, defaultValue: unknown) {
+    getItem(key: string, defaultValue?: unknown) {
         return this.store.getItem(key) ?? defaultValue;
     },
     setItem(key: string, value: TStorageEntry) {
