@@ -4,7 +4,7 @@ import starFilled from "@iconify/icons-carbon/star-filled";
 import { AppIcon } from "../theme/overrides/CustomIcons";
 
 interface IAppStarRating {
-    reviews: number;
+    reviews?: string;
     ratings: number;
 }
 
@@ -24,7 +24,7 @@ export const AppStarRating: FC<IAppStarRating> = ({
 
         {reviews && (
             <Link variant="body2" sx={{ color: "text.secondary" }}>
-                ({reviews} reviews)
+                {reviews}
             </Link>
         )}
     </Stack>
