@@ -23,6 +23,7 @@
         "@iconify/react": "^3.2.2",
         "@mui/icons-material": "^5.10.2",
         "@mui/material": "^5.10.2",
+        "next": "12.2.3",
         "use-immer": "^0.7.0"
     }
 }
